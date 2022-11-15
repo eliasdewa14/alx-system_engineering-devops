@@ -1,115 +1,77 @@
-#  0x04. Loops, conditions and parsing
+# 0x06. Regular expression
 
-#  More Info
 
 # Mandatory and advanced tasks
 
-0. Create a SSH RSA key pair
+0. Simply matching School
 
-   man: ssh-keygen
+![image](https://user-images.githubusercontent.com/54449260/202000718-fe0f9537-b34c-4e83-ab88-aac09c4b9e10.png)
 
-You will soon have to manage your own servers concept page hosted on remote data centers. We need to set them up with your RSA public key so that you can access them via SSH.
+Requirements:
 
-   Create a RSA key pair.
+      The regular expression must match School
+      Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
-   Requirements:
+1. Repetition Token #0
 
-    Share your public key in your answer file 0-RSA_public_key.pub
-    Fill the SSH public key field of your intranet profile with the public key you just generated
-    Keep the private key to yourself in a secure location, you will use it later to connect to your servers using SSH. Some storing ideas are Dropbox, Google Drive, password manager, USB key. Failing to do so will prevent you to access your servers, which will prevent you from doing your projects
-    If you decide to add a passphrase to your key, make sure to save this passphrase in a secure location, you will not be able to use your keys without the passphrase
-    
-SSH and RSA keys will be covered in depth in a later project.
+![image](https://user-images.githubusercontent.com/54449260/202000985-68ec94ef-4c9b-4cb0-ba1a-2a20be628700.png)
 
-1. Write a Bash script that displays Best School 10 times.
 
 Requirement:
 
-    You must use the for loop (while and until are forbidden)
+      Find the regular expression that will match the above cases
+      Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
     
-2. Write a Bash script that displays Best School 10 times.
+2. Repetition Token #1
+
+![image](https://user-images.githubusercontent.com/54449260/202001178-7da43488-7e65-4975-8cfc-37ce2ecd3e55.png)
+
 
 Requirements:
 
-    You must use the while loop (for and until are forbidden)
+      Find the regular expression that will match the above cases
+      Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
 
-3. Write a Bash script that displays Best School 10 times.
+3. Repetition Token #2
 
-Requirements:
+![image](https://user-images.githubusercontent.com/54449260/202001323-2fcf64f7-1fd2-404d-ae9d-cef2e0f3d9ca.png)
 
-    You must use the until loop (for and while are forbidden)
-
-4. Write a Bash script that displays Best School 10 times, but for the 9th iteration, displays Best School and then Hi on a new line.
 
 Requirements:
 
-    You must use the while loop (for and until are forbidden)
-    You must use the if statement
+      Find the regular expression that will match the above cases
+      Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
+
+4. Repetition Token #3
+
+![image](https://user-images.githubusercontent.com/54449260/202001441-14741d58-184d-4b20-9584-e4a3f1698673.png)
+
+
+Requirements:
+
+      Find the regular expression that will match the above cases
+      Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
+      Your regex should not contain square brackets
     
-5. Write a Bash script that loops from 1 to 10 and:
-
-    displays bad luck for the 4th loop iteration
-    displays good luck for the 8th loop iteration
-    displays Best School for the other iterations
+5. Not quite HBTN yet
 
 Requirements:
 
-    You must use the while loop (for and until are forbidden)
-    You must use the if, elif and else statements
+      The regular expression must be exactly matching a string that starts with h ends with n and can have any single character in between
+      Using the project instructions, create a Ruby script that accepts one argument and pass it to a regular expression matching method
     
-6. Write a Bash script that displays numbers from 1 to 20 and:
+6. Call me maybe
 
-    displays 4 and then bad luck from China for the 4th loop iteration
-    displays 9 and then bad luck from Japan for the 9th loop iteration
-    displays 17 and then bad luck from Italy for the 17th loop iteration
+This task is brought to you by a professional advisor Neha Jain, Senior Software Engineer at LinkedIn.
 
-Requirements:
+Requirement:
 
-    You must use the while loop (for and until are forbidden)
-    You must use the case statement
+      The regular expression must match a 10 digit phone number
 
-7. Write a Bash script that displays the time for 12 hours and 59 minutes:
+7. OMG WHY ARE YOU SHOUTING?
 
-    display hours from 0 to 12
-    display minutes from 1 to 59
+![image](https://user-images.githubusercontent.com/54449260/202001827-9255a0e6-ce8f-472d-bf85-953500c68cda.png)
 
-Requirements:
+Requirement:
 
-    You must use the while loop (for and until are forbidden)
-
-Note that in this example, we only display the first 70 lines using the head command.
-
-8. Write a Bash script that displays:
-
-    The content of the current directory
-    In a list format
-    Where only the part of the name after the first dash is displayed (refer to the example)
-
-Requirements:
-
-    You must use the for loop (while and until are forbidden)
-    Do not display hidden files
-
-9. Write a Bash script that gives you information about the school file.
-
-Requirements:
-
-    You must use if and, else (case is forbidden)
-    Your Bash script should check if the file exists and print:
-        if the file exists: school file exists
-        if the file does not exist: school file does not exist
-    If the file exists, print:
-        if the file is empty: school file is empty
-        if the file is not empty: school file is not empty
-        if the file is a regular file: school is a regular file
-        if the file is not a regular file: (nothing)
-       
- 10. Write a Bash script that displays numbers from 1 to 100.
-
-Requirements:
-
-    Displays FizzBuzz when the number is a multiple of 3 and 5
-    Displays Fizz when the number is multiple of 3
-    Displays Buzz when the number is a multiple of 5
-    Otherwise, displays the number
-    In a list format
+      The regular expression must be only matching: capital letters
