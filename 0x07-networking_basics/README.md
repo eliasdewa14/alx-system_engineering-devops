@@ -18,7 +18,7 @@ What is the most important position in a software company?
       3
       sylvain@ubuntu$
 
-# Mandatory and advanced tasks
+# Mandatory tasks
 
 0. OSI model
 
