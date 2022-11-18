@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script displays all active IPv4 IPs on the machine it’s executed on.
 
-ifconfig | grep -E "inet addr:" | cut -d ':' -f2 | cut -d ' ' -f1
+ifconfig -a | grep "inet addr" | cut -d ':' -f2 | cut -d ' ' -f12
