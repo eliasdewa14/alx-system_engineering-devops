@@ -1,8 +1,8 @@
 # Install nginx web server using puppet
 package { 'nginx':
-	ensure => 'present',
+	ensure => installed,
 }
-file_line { 'instal':
+file_line { 'install':
 	ensure => 'present',
 	path   => '/etc/nginx/sites-available/default',
 	after  => 'listen 80 default_server;',
