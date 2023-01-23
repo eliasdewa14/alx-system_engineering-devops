@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 # Configure Nginx server that redirecting to another page
-apt-get update
-apt-get install -y nginx
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-ufw allow 'Nginx HTTP'
-echo "Hello World!" > /etc/nginx/html/index.html
-sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/channel/UC0ypST9g7cIDMjgGq9cgkJg permanent;' /etc/nginx/sites-available/default
-service nginx restart
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/channel\/UC0ypST9g7cIDMjgGq9cgkJg permanent;" 
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-available/default
+sudo service nginx restart
