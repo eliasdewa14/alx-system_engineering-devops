@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# a Bash script that configures a server
+
+cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
+
+service nginx restart
+
+pkill -o nginx
