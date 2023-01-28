@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Configure Nginx server that redirecting to another page
 
-sudo apt-get -y update
+# update and install
+sudo apt-get update
 sudo apt-get -y install nginx
+# write and redirect
 echo "Hello World!" > /var/www/html/index.html
-string_to_replacement="server_name _;\n\trewrite ^\/redirect_me return 301 Moved Permanently https:\/\/www.youtube.com\/@eliasd342 permanent;"
-sudo sed -i "s/server_name _;/$string_to_replacement/" /etc/nginx/sites-enabled/default
+sed -i '/server_name _/a location /redirect_me { rewrite ^ https:\/\/www.youtube.com\/@eliasd342 permanent; }' /etc/nginx/sites-available/default
+# restart
 sudo service nginx restart
