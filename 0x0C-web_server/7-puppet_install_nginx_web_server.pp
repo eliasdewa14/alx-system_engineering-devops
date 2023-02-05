@@ -1,18 +1,21 @@
 # Install nginx web server using puppet
+
 package { 'nginx':
 	ensure => 'present',
 }
 execute { 'install':
-	command => 'sudo apt-get update; sudo apt-get -y install nginx',
+	command => 'sudo apt-get update ; sudo apt-get -y install nginx',
+	provider => shell,
 }
 execute { 'Hello':
-	command => 'echo "Hello World!" > /var/www/html/index.html'
+	command => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
+	provider => shell,
 }
-file_line { 'sudo sed -i':
-	path   => '/etc/nginx/sites-available/default',
-	after  => 'listen 80 default_server;',
-	line   => 'rewrite ^\/redirect_me return 301 Moved Permanently https:\/\/www.youtube.com\/@eliasd342 permanent;',
+execute {'sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/www.youtube.com\/@eliasd342\/;\\n\\t}/" /etc/nginx/sites-available/default':
+  provider => shell,
 }
 execute { 'run':
 	command => 'sudo service nginx restart',
+	provider => shell,
 }
+
