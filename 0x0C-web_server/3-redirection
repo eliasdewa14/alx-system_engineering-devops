@@ -7,7 +7,7 @@ sudo apt-get -y install nginx
 
 # write and redirect
 echo "Hello World!" | sudo tee /var/www/html/index.html
-string_to_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/@eliasd342 permanent;"
+string_to_replacement="server_name _;\n\trewrite ^\/redirect_me https://www.youtube.com/watch?v=XqZsoesa55w permanent;"
 sudo sed -i "s/server_name _;/$string_to_replacement/" /etc/nginx/sites-enabled/default
 
 # restart nginx
