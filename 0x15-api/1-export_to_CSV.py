@@ -6,12 +6,11 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    response = requests.get('https://jsonplaceholder.typicode.com/users/{:}'
-                            .format(argv[1])).json()
+    user_url = 'https://jsonplaceholder.typicode.com/users/' + argv[1]
 
-    tasks = requests.get(
-        'https://jsonplaceholder.typicode.com/?userId={:}/todos/'.format(
-            argv[1])).json()
+    response = requests.get(user_url).json()
+    todos = user_url + "/todos"
+    tasks = requests.get(todos).json()
 
     USER_ID = argv[1]
     USER_NAME = response.get('username')
