@@ -10,13 +10,13 @@ if __name__ == '__main__':
                             .format(argv[1])).json()
 
     tasks = requests.get(
-        'https://jsonplaceholder.typicode.com/todos/?userId={:}'.format(
+        'https://jsonplaceholder.typicode.com/?userId={:}/todos/'.format(
             argv[1])).json()
 
     USER_ID = argv[1]
     USER_NAME = response.get('username')
 
-    with open('{:}.csv'.format(argv[1]), 'w') as file:
+    with open('{}.csv'.format(argv[1]), 'w') as file:
         for task in tasks:
             file.write('"{}", "{}", "{}", "{}"\n'.format(argv[1], USER_NAME,
                                                          task.get('completed'),
