@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """The extend Python script to export data in the JSON format.
 """
+import json
 import requests
 from sys import argv
-import json
 
 
 if __name__ == '__main__':
@@ -14,8 +14,6 @@ if __name__ == '__main__':
         'https://jsonplaceholder.typicode.com/todos').json()
 
     dictionary = {}
-
-    url = "https://jsonplaceholder.typicode.com/users"
 
     dictionary = {}
     for user in users:
