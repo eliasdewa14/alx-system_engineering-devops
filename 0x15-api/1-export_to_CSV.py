@@ -1,21 +1,24 @@
 #!/usr/bin/python3
 """The extend Python script to export data in the CSV format.
 """
+import csv
 import requests
 from sys import argv
 
 
 if __name__ == '__main__':
     USER_ID = argv[1]
-    user_url = "https://jsonplaceholder.typicode.com/users" + "/" + USER_ID
+    USER_URL = "https://jsonplaceholder.typicode.com/users/{}" .format(USER_ID)
 
-    USER_NAME = requests.get(user_url).json().get('username')
+    USER_NAME = requests.get(USER_URL).json().get('username')
 
-    todo = user_url + "/todos"
-    tasks = requests.get(todo).json()
+    todo_URL = "https://jsonplaceholder.typicode.com/todos?userID={}".format(
+        USER_ID)
+    tasks = requests.get(todo_URL).json()
 
     with open('{}.csv'.format(USER_ID), 'w') as file:
+        task_writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for task in tasks:
-            file.write('"{}", "{}", "{}", "{}"\n'.format(USER_ID, USER_NAME,
-                                                         task.get('completed'),
-                                                         task.get('title')))
+            task_writer.writerow([int(USER_ID), USER_NAME,
+                                 task.get('completed'),
+                                 task.get('title')])
