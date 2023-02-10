@@ -10,16 +10,14 @@ if __name__ == '__main__':
     users = requests.get(
         'https://jsonplaceholder.typicode.com/users').json()
 
-    tasks = requests.get(
-        'https://jsonplaceholder.typicode.com/todos').json()
-
-    dictionary = {}
-
     dictionary = {}
     for user in users:
         USER_ID = user.get('id')
         USER_NAME = user.get('username')
         dictionary[USER_ID] = []
+        tasks = requests.get(
+            'https://jsonplaceholder.typicode.com/users/{}'.format(USER_ID) +
+            '/todos/').json()
         for task in tasks:
             dictionary[USER_ID].append({
                 "task": task.get('title'),
