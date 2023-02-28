@@ -8,7 +8,7 @@ import requests
 def top_ten(subreddit):
     """Print the titles of the 10 hottest posts"""
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    headers = {'User-Agent': 'Google Chrome Version 81.0.4044.129'}
+    headers = {'User-Agent': 'Vivaldi 5.7.2921.60'}
     params = {"limit": 10}
     response = requests.get(url, params=params, headers=headers).json()
 
