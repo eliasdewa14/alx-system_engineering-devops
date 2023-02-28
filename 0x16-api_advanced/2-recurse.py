@@ -11,15 +11,15 @@ def recurse(subreddit, hot_list=[], after=""):
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     arg = {'after': after}
     response = requests.get(url, params=arg, headers=headers)
+    list_after = response.json().get("data").get("after")
+    titles = response.json().get("data").get("children")
 
-    if response.status_code == 200:
-        list_after = response.json().get("data").get("after")
-        if list_after is not None:
-            after = list_after
-            recurse(subreddit, hot_list)
-        titles = response.json().get("data").get("children")
-        for i in titles:
-            hot_list.append(i.get("data").get("title"))
+    if list_after:
+        if titles:
+            for i in titles:
+                hot_list.append(i.get("data").get("title"))
+        if list_after:
+            recurse(subreddit, hot_list, list_after)
         return hot_list
     else:
         return (None)
