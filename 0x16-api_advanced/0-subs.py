@@ -9,8 +9,7 @@ def number_of_subscribers(subreddit):
     """
     try:
         url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
-        headers = {
-            'User-Agent': 'Vivaldi 5.7.2921.60 (Stable channel) (64-bit)'}
+        headers = {'User-Agent': 'Google Chrome Version 81.0.4044.129'}
         response = requests.get(url, headers=headers).json()
         return response.get('data').get('subscribers')
     except Exception:
